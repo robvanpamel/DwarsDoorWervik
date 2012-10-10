@@ -4,5 +4,8 @@
 
 <h2>@ViewBag.Message</h2>
 <p>
-    @Web.Index_WelcomeText
+    UICUlture : @System.Globalization.CultureInfo.CurrentUICulture.DisplayName
+    @PageContext.Page.UICulture
+    @System.Globalization.CultureInfo.CurrentCulture.DisplayName
+    de tekst : @Web.Index_WelcomeText
 </p>
