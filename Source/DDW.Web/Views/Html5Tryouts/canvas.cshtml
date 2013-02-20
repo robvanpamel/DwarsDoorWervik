@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+<canvas id="myCanvas" width="580" height="200">
+</canvas>
+<script src="~/Scripts/jquery-1.5.1.js" type="text/javascript"></script>
+<script>
+    function drawTransparentSquare(context, x,y) {
+        context.save();
+        context.fillStyle = 'red';
+        context.translate(x, y);
+        context.fillRect(-25, -25, 50, 50);
+        context.restore();
+    }
+
+    function doStuff(context) {
+        context.save();
+        context.translate(context.canvas.width/2, context.canvas.height/2);
+        context.fillText("AfterContextTranslate", 5, 5);
+        context.restore();
+        context.fillText("AfterContextRestore", 5, 5);
+
+        context.strokeStyle = '#c00';
+        context.lineWidth = 5;
+        context.beginPath();
+        context.moveTo(10, 10);
+        context.lineTo(30, 30);
+        context.stroke();
+    }
+    
+    $("#myCanvas").click(function (e) {
+        var canvas = document.getElementById('myCanvas');
+        var context = $("#myCanvas")[0].getContext('2d');
+        clearCanvas(context);
+        drawTransparentSquare(context, e.pageX - $("#myCanvas").offset().left, e.pageY - $("#myCanvas").offset().top);
+    });
+
+    $("#myCanvas").mousemove(function (e) {
+        var canvas = document.getElementById('myCanvas');
+        var context = $("#myCanvas")[0].getContext('2d');
+        clearCanvas(context);
+        drawTransparentSquare(context, e.pageX - $("#myCanvas").offset().left, e.pageY - $("#myCanvas").offset().top);
+    });
+
+    clearCanvas = function (ctx) {
+        ctx.save();
+        
+        // Use the identity matrix while clearing the canvas
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+        ctx.clearRect(0, 0, $("#myCanvas").width(), $("#myCanvas").height());
+
+        // Restore the transform
+        ctx.restore();
+    }
+
+    $(document).ready(function () {
+        
+        
+//        drawTransparentSquare(context);
+  //      doStuff(context);
+    }
+      );
+</script>
+</html>
