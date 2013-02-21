@@ -48,7 +48,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeControllerTestFixture.cs" />
-    <Compile Include="Experiments\MongoDBTestFixture.cs" />
+    <Compile Include="Experiments\Person.cs" />
+    <Compile Include="Experiments\MongoDbTryoutsTestFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
