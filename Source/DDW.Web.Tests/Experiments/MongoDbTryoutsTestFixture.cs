@@ -5,7 +5,7 @@ using NUnit.Framework;
 
 namespace DDW.Web.Tests.Experiments
 {
-    [TestFixture]
+    [TestFixture, Explicit]
     public class MongoDbTryoutsTestFixture
     {
         [Test]
